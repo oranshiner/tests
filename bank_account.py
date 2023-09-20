@@ -12,21 +12,21 @@ class BankAccount:
         """ client information """
         return f'Account name: {self.name}, balance: {self.balance}'
 
-    def deposit(self, amount, overdraft):
+    def deposit(self, amount):
         """ deposit money """
         if amount > 0:
             self.balance += (amount - commission(self.isClient))
         else:
             print("Invalid amount")
 
-    def withdraw(self, amount, overdraft):
+    def withdraw(self, amount):
         """ withdraw money """
         if self.balance >= amount > 0:
             self.balance -= (amount + commission(self.isClient))
         else:
             print("Insufficient funds")
 
-    def transfer(self, amount, account, overdraft):
+    def transfer(self, amount, account):
         """ transfer money """
         if self.balance >= amount > 0 and (amount - commission(self.isClient)) > 0:
             self.balance -= (amount + commission(self.isClient))
