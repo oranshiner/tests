@@ -19,7 +19,7 @@ class BankAccount:
         else:
             print("Invalid amount")
 
-    def takeout(self, amount):
+    def withdraw(self, amount):
         """ withdraw money """
         if self.balance >= amount > 0:
             self.balance -= (amount + commission(self.isClient))
