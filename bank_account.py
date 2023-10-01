@@ -25,12 +25,3 @@ class BankAccount:
             self.balance -= (amount + commission(self.isClient))
         else:
             print("Insufficient funds")
-
-    def transfer(self, amount, account):
-        """ transfer money """
-        if self.balance >= amount > 0 and (amount - commission(self.isClient)) > 0:
-            self.balance -= (amount + commission(self.isClient))
-            account.balance += amount
-        else:
-            print("Insufficient funds")
-        
