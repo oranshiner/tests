@@ -1,35 +1,33 @@
+import unittest
 from bank_account import BankAccount
 
+class TestBankAccount(unittest.TestCase):
 
-def test_valid_parameters():
-    # Given
-    name = "John Doe"
-    balance = 1000
-    isClient = True
+    def test_client(self):
+        account = BankAccount("John", 1000, True)
+        self.assertEqual(account.client(), "Account name: John, balance: 1000")
 
-    # When
-    account = BankAccount(name, balance, isClient)
+    def test_deposit(self):
+        account = BankAccount("Mary", 500, True)
+        account.deposit(100)
+        self.assertEqual(account.balance, 595)
 
-    # Then
-    assert account.name == name
-    assert account.balance == balance
-    assert account.isClient == isClient
+    def test_withdraw(self):
+        account = BankAccount("Mike", 200, True)
+        account.withdraw(150)
+        self.assertEqual(account.balance, 45)
 
-def setup_method(self, method):
-    self.name = "John Doe"
-    self.balance = 1000
-    self.isClient = True
+    def test_insufficient_funds(self):
+        account = BankAccount("Lisa", 100, False)
+        account.withdraw(200)
+        self.assertEqual(account.balance, 100)
 
-    def test_initializes_with_name_balance_and_isClient_flag(self):
-        # Given
-        name = "John Doe"
-        balance = 1000
-        isClient = True
+    def test_transfer(self):
+        account1 = BankAccount("John", 500, True)
+        account2 = BankAccount("Mary", 300, False)
+        account1.transfer(100, account2)
+        self.assertEqual(account1.balance, 395)
+        self.assertEqual(account2.balance, 400)
 
-        # When
-        account = BankAccount(name, balance, isClient)
-
-        # Then
-        assert account.name == name
-        assert account.balance == balance
-        assert account.isClient == isClient
+if __name__ == '__main__':
+    unittest.main()
