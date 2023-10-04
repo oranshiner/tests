@@ -46,7 +46,8 @@ class BankAccount:
         else:
           print("Insufficient balance")
 
-def test_initializes_with_name_balance_and_is_client_flag(self):
+
+def test_initializes_with_name_balance_and_is_client_flag():
     """
     Test that the BankAccount class correctly initializes with a name, balance, and isClient flag.
     """
