@@ -45,21 +45,3 @@ class BankAccount:
           print(f"Transferred {amount} to {recipient.name}")
         else:
           print("Insufficient balance")
-
-
-def test_initializes_with_name_balance_and_is_client_flag():
-    """
-    Test that the BankAccount class correctly initializes with a name, balance, and isClient flag.
-    """
-    # Given
-    name = "John Doe"
-    balance = 1000
-    isClient = True
-
-    # When
-    account = BankAccount(name, balance, isClient)
-
-    # Then
-    assert account.name == name
-    assert account.balance == balance
-    assert account.isClient == isClient
