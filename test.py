@@ -29,5 +29,3 @@ class TestBankAccount(unittest.TestCase):
         self.assertEqual(account1.balance, 395)
         self.assertEqual(account2.balance, 400)
 
-if __name__ == '__main__':
-    unittest.main()
