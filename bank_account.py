@@ -15,6 +15,10 @@ class BankAccount:
         """ validate the amount """
         if amount <= 0:
             raise ValueError("Invalid amount")
+        elif not isinstance(amount, (int, float)):
+            raise ValueError("Invalid amount")
+        else:
+            raise InsufficientFundsError("Insufficient funds")
 
     def deposit(self, amount):
         """ deposit money """
@@ -31,21 +35,14 @@ class BankAccount:
         
     def transfer(self, amount, recipient):
         """
-        Transfer money to another bank account+
+        Transfer money to another bank account
         """
         if self.balance >= amount:
           self.balance -= amount
           recipient.balance += amount
-          print(f"Transferred {amount} to {recipient.name}")
+          return f"Transferred {amount} to {recipient.name}"
         else:
-          print("Insufficient balance")
-
-    def validate_amount(self, amount):
-        """ validate the amount """
-        if not isinstance(amount, (int, float)):
-            raise ValueError("Invalid amount")
-        else:
-            raise InsufficientFundsError("Insufficient funds")
+          raise ValueError("Insufficient balance")
 
     def client(self):
         """ client information """
