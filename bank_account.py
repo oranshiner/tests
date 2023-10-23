@@ -28,6 +28,17 @@ class BankAccount:
         if self.balance >= amount + commission(self.is_client):
             self.balance -= (amount + commission(self.is_client))
             return self.balance
+        
+    def transfer(self, amount, recipient):
+        """
+        Transfer money to another bank account+
+        """
+        if self.balance >= amount:
+          self.balance -= amount
+          recipient.balance += amount
+          print(f"Transferred {amount} to {recipient.name}")
+        else:
+          print("Insufficient balance")
 
     def validate_amount(self, amount):
         """ validate the amount """
@@ -39,4 +50,3 @@ class BankAccount:
     def client(self):
         """ client information """
         return {'Account name': self.name, 'balance': self.balance}
-
