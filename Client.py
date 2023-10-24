@@ -1,4 +1,9 @@
+import os
+
 class Client:
+    
+    client_list = ["John", "Doe", "123456789", "123 Main St", "Male", "1990-01-01", "Jane", "Smith", "987654321", "456 Elm St", "Female", "1995-05-05"]
+
     def __init__(self, first_name, last_name, id_number, address, sex, date_of_birth):
         self.first_name = first_name
         self.last_name = last_name
@@ -33,5 +38,11 @@ class Client:
             if not all([first_name, last_name, id_number, address, gender, date_of_birth]):
                 print("All fields are required.")
                 continue
+
+            '''add client to client_list'''
+            self.client_list.append(first_name)
             
-            return Client(first_name, last_name, id_number, address, gender, date_of_birth)
+                    
+    def get_client(self):
+        return self.client_list
+    

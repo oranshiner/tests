@@ -1,4 +1,4 @@
-def calculate_commission(isClient: bool) -> float:
+def calculate_client_commission(discount: bool) -> float:
     """ Calculate the commission for a client.
 
     Parameters:
@@ -7,7 +7,8 @@ def calculate_commission(isClient: bool) -> float:
     Returns:
     - float: The commission amount.
     """
-    if isClient:
-        return 2.5
-    else:
-        return 5
+    commission_rates = {
+        True: 2.5,
+        False: 5
+    }
+    return commission_rates[discount]
