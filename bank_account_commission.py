@@ -9,6 +9,6 @@ def calculate_client_commission(discount: bool) -> float:
     """
     commission_rates = {
         True: 2.5,
-        False: 5
+        False: 5.0
     }
     return commission_rates[discount]
