@@ -35,13 +35,3 @@ class BankAccount:
         else:
             print("Insufficient funds")
 
-    def transfer(self, amount, recipient):
-        """
-        Transfer money to another bank account+
-        """
-        if self.balance >= amount:
-          self.balance -= amount
-          recipient.balance += amount
-          print(f"Transferred {amount} to {recipient.name}")
-        else:
-          print("Insufficient balance")
